@@ -16,7 +16,7 @@
 #define Opt &hm LALT
 #define Cmd &hm LGUI
 #define Alt &hm RALT
-
+ 
 // Magic bluetooth button
 #define BT_(btnum) &bt_key btnum btnum
 
@@ -38,13 +38,6 @@
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
-        };
-
-        lp_mc: launch_pad_mission_control {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <HYPR(N4)>, <&kp LC(UP)>;
         };
 
         lsscw: layer_sticky_shift_caps_word {
@@ -117,78 +110,78 @@
 
         qwerty {
 //                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━┓
-            display-name = "Qwerty"                ;
+            display-name = "colemak"                ;
 //                       ┗━━━━━━━━━━━━━━━━━━━━━━━━━┛
             bindings = <
 //         ┏━━━━━━━┓                                                                                          ┏━━━━━━━┓
-//         ┃LAUNCHP┃                                                                                          ┃ MUTE  ┃
-            &lp_mc                                                                                          &lt 5 K_MUTE
-//         ┃MISSION┃                                                                                          ┃ keybd ┃
+//         ┃  WIN  ┃                                                                                          ┃  ESC  ┃
+            &kp LGUI                                                                                           &kp ESC
+//         ┃       ┃                                                                                          ┃       ┃
 // ┏━━━━━━━╋━━━━━━━╋━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓                          ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━╋━━━━━━━╋━━━━━━━┓
-// ┃  ESC  ┃   Q   ┃   W   ┃   E   ┃   R   ┃   T   ┃                          ┃   Y   ┃   U   ┃   I   ┃   O   ┃   P   ┃ BKSPC ┃
-    &kp ESC  &kp Q   &kp W   &kp E   &kp R   &kp T                              &kp Y   &kp U   &kp I   &kp O   &kp P  &kp BSPC
+// ┃  BSPC ┃   Q   ┃   W   ┃   F   ┃   P   ┃   G   ┃                          ┃   J   ┃   L   ┃   U   ┃   Y   ┃   :   ┃  TAB  ┃
+   &kp BSPC  &kp Q   &kp W   &kp F   &kp P   &kp G                              &kp J   &kp L   &kp U   &kp Y  &kp SEMI &kp TAB
 // ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫                          ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
-// ┃  TAB  ┃   A   ┃   S   ┃   D   ┃   F   ┃   G   ┃                          ┃   H   ┃   J   ┃   K   ┃   L   ┃  ' "  ┃RETURN ┃
-    Glb TAB  Sft A   Ctl S   Opt D   Cmd F   Alt G                              Alt H   Cmd J   Opt K   Ctl L  Sft SQT Glb RET
-// ┃ Globe ┃ Shift ┃ Ctrl  ┃  Opt  ┃  Cmd  ┃ R Alt ┃                          ┃ R Alt ┃  Cmd  ┃  Opt  ┃ Ctrl  ┃ Shift ┃ Globe ┃
+// ┃ SHIFT ┃   A   ┃   R   ┃   S   ┃   T   ┃   D   ┃                          ┃   H   ┃   N   ┃   E   ┃   I   ┃   O   ┃   '   ┃
+  &kp LSHFT  &kp A   &kp R   &kp S   &kp T   &kp D                              &kp H   &kp N   &kp E   &kp I  &kp O   &kp SQT
+// ┃       ┃       ┃       ┃       ┃       ┃       ┃                          ┃       ┃       ┃       ┃       ┃       ┃       ┃
 // ┗━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫                          ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┛
-//         ┃   Z   ┃   X   ┃   C   ┃   V   ┃   B   ┃                          ┃   N   ┃   M   ┃  , ;  ┃  . :  ┃  / \  ┃
-             &kp Z   &kp X   &kp C   &kp V   &kp B                              &kp N   &kp M   &mcs    &mdc    &msb
+//         ┃   Z   ┃   X   ┃   C   ┃   V   ┃   B   ┃                          ┃   K   ┃   M   ┃   ,   ┃   .   ┃  / \  ┃
+             &kp Z   &kp X   &kp C   &kp V   &kp B                              &kp K   &kp M &kp COMMA &kp DOT &kp FSLH
 //         ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━┳━━━┻━━━┳━━━┻━━━┳━━━━━━━┓  ┏━━━━━━━┳━━━┻━━━┳━━━┻━━━┳━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
-//                                     ┃ ( num ┃ SHIFT ┃ { cmd ┃  ┃ } cmd ┃ SPACE ┃ ) alt ┃
-                             &lt 1 LPAR &lsscw 2 0 &mt LCMD LBRC  &mt RCMD RBRC &lt 4 SPC &mt LALT RPAR
-//                                     ┗━━━━━━━┫  nav  ┣━━━━━━━┛  ┗━━━━━━━┫  sym  ┣━━━━━━━┛
+//                                     ┃ RET   ┃ RAISE ┃ L CTL ┃  ┃ RALT  ┃ LOWER ┃ SPACE ┃
+                                        &kp RET  &mo 1  &kp LCTL   &kp RALT &mo  2 &kp SPACE
+//                                     ┗━━━━━━━┫       ┣━━━━━━━┛  ┗━━━━━━━┫       ┣━━━━━━━┛
 //                                             ┗━━━━━━━┛                  ┗━━━━━━━┛
             >;
         };
 
         num {
 //                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━┓
-            display-name = "numpad"                ;
+            display-name = "raise"                ;
 //                       ┗━━━━━━━━━━━━━━━━━━━━━━━━━┛
             bindings = <
 //         ┏━━━━━━━┓                                                                                          ┏━━━━━━━┓
-//         ┃       ┃                                                                                          ┃  DEL  ┃
-             &none                                                                                             &kp DEL
+//         ┃       ┃                                                                                          ┃       ┃
+             &trans                                                                                             &trans
 // ┏━━━━━━━╋━━━━━━━╋━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓                          ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━╋━━━━━━━╋━━━━━━━┓
-// ┃       ┃       ┃       ┃       ┃       ┃       ┃                          ┃   /   ┃   7   ┃   8   ┃   9   ┃   -   ┃ BKSPC ┃
-     &none   &none   &none   &none   &none   &none                            &kp SLASH &kp N7 &kp N8  &kp N9 &kp MINUS &kp BSPC
+// ┃  DEL  ┃   +   ┃   7   ┃   8   ┃   9   ┃   *   ┃                          ┃       ┃       ┃       ┃       ┃       ┃       ┃
+   &kp DEL &kp PLUS &kp N7 &kp N8  &kp N9 &kp STAR                              &none   &none   &none   &none   &none   &trans
 // ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫                          ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
-// ┃       ┃ CtrlA ┃       ┃ CtrlD ┃       ┃       ┃                          ┃   *   ┃   4   ┃   5   ┃   6   ┃   +   ┃RETURN ┃
-&kp GLOBE Sft LC(A) &kp LCTL Opt LC(D) &kp LGUI &kp RALT                       &kp STAR &kp N4  &kp N5  &kp N6 &kp PLUS &kp RET
-// ┃ Globe ┃ Shift ┃ Ctrl  ┃  Opt  ┃  Cmd  ┃ R Alt ┃                          ┃       ┃       ┃       ┃       ┃       ┃       ┃
+// ┃       ┃   -   ┃   4   ┃   5   ┃   6   ┃   /   ┃                          ┃  PGUP ┃ HOME  ┃   UP  ┃ END   ┃       ┃       ┃
+    &trans &kp MINUS &kp N4  &kp N5  &kp N6 &kp FSLH                         &kp PG_DN &kp HOME &kp UP &kp END  &none   &none
+// ┃       ┃       ┃       ┃       ┃       ┃       ┃                          ┃       ┃       ┃       ┃       ┃       ┃       ┃
 // ┗━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫                          ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┛
-//         ┃ CtrlZ ┃ CtrlX ┃ CtrlC ┃ CtrlV ┃       ┃                          ┃   :   ┃   1   ┃   2   ┃   3   ┃   =   ┃
-         &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &none                        &kp COLON &kp N1 &kp N2  &kp N3 &kp EQUAL
+//         ┃   0   ┃   1   ┃   2   ┃   3   ┃   .   ┃                          ┃  PGDN ┃  LEFT ┃  DOWN ┃ RIGHT ┃ RAPP  ┃
+            &kp N0  &kp N1   &kp N2  &kp N3 &kp DOT                          &kp PG_UP &kp LEFT &kp DOWN &kp RIGHT &kp K_APP
 //         ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━┳━━━┻━━━┳━━━┻━━━┳━━━━━━━┓  ┏━━━━━━━┳━━━┻━━━┳━━━┻━━━┳━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
-//                                     ┃ ##### ┃       ┃       ┃  ┃   .   ┃ SPACE ┃   0   ┃
-                                         &trans  &mo 2   &none    &kp COMMA &kp SPC &kp N0
-//                                     ┗━━━━━━━┫  fn   ┣━━━━━━━┛  ┗━━━━━━━┫       ┣━━━━━━━┛
+//                                     ┃   =   ┃       ┃       ┃  ┃       ┃       ┃       ┃
+                                       &kp EQUAL &trans  &trans     &trans  &trans  &trans
+//                                     ┗━━━━━━━┫       ┣━━━━━━━┛  ┗━━━━━━━┫       ┣━━━━━━━┛
 //                                             ┗━━━━━━━┛                  ┗━━━━━━━┛
             >;
         };
 
         nav {
 //                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━┓
-            display-name = "navigation"            ;
+            display-name = "lower"                 ;
 //                       ┗━━━━━━━━━━━━━━━━━━━━━━━━━┛
             bindings = <
 //         ┏━━━━━━━┓                                                                                          ┏━━━━━━━┓
-//         ┃       ┃                                                                                          ┃  DEL  ┃
-             &none                                                                                             &kp DEL
+//         ┃       ┃                                                                                          ┃       ┃
+             &trans                                                                                            &trans
 // ┏━━━━━━━╋━━━━━━━╋━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓                          ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━╋━━━━━━━╋━━━━━━━┓
-// ┃       ┃       ┃       ┃       ┃       ┃       ┃                          ┃ Pg Up ┃       ┃       ┃       ┃       ┃ BKSPC ┃
-     &none   &none   &none   &none   &none   &none                            &kp PG_UP &none   &none   &none   &none  &kp BSPC
+// ┃       ┃   !   ┃   @   ┃   #   ┃   $   ┃   %   ┃                          ┃   ^   ┃   &   ┃   *   ┃   (   ┃   )   ┃       ┃
+     &none  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT                        &kp CARET &kp AMPS &kp STAR &kp LPAR &kp RPAR &trans
 // ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫                          ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
-// ┃       ┃ Cmd A ┃       ┃       ┃       ┃       ┃                          ┃ Home  ┃ Left  ┃  Up   ┃ Right ┃  End  ┃RETURN ┃
-&kp GLOBE Sft LG(A) &kp LCTL &kp LALT &kp LGUI &kp RALT                      &kp HOME &kp LEFT &kp UP &kp RIGHT &kp END &kp RET
-// ┃ Globe ┃ Shift ┃ Ctrl  ┃  Opt  ┃  Cmd  ┃ R Alt ┃                          ┃       ┃       ┃       ┃       ┃       ┃       ┃
+// ┃       ┃       ┃       ┃       ┃       ┃       ┃                          ┃  - _  ┃  + =  ┃ [ {   ┃  ] }  ┃  \ |  ┃  ` ~  ┃
+     &none   &none   &none   &none   &none   &none                          &kp MINUS &kp EQUAL &kp LBKT &kp RBKT &kp NUBS &kp GRAVE
+// ┃       ┃       ┃       ┃       ┃       ┃       ┃                          ┃       ┃       ┃       ┃       ┃       ┃       ┃
 // ┗━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫                          ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┛
-//         ┃ Cmd Z ┃ Cmd X ┃ Cmd C ┃ Cmd V ┃       ┃                          ┃ Pg Dn ┃       ┃ Down  ┃       ┃       ┃
-         &kp LG(Z) &kp LG(X) &kp LG(C) &kp LG(V) &none                        &kp PG_DN &none  &kp DOWN &none   &none
+//         ┃       ┃       ┃       ┃       ┃       ┃                          ┃       ┃       ┃       ┃       ┃       ┃
+             &none   &none   &none   &none   &none                              &none   &none   &none   &none   &none
 //         ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━┳━━━┻━━━┳━━━┻━━━┳━━━━━━━┓  ┏━━━━━━━┳━━━┻━━━┳━━━┻━━━┳━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
-//                                     ┃  fn   ┃ ##### ┃       ┃  ┃       ┃ SPACE ┃       ┃
-                                         &mo 1   &trans  &none      &none  &kp SPC  &none
+//                                     ┃       ┃       ┃       ┃  ┃       ┃       ┃       ┃
+                                         &trans  &trans  &trans     &trans  &trans  &trans
 //                                     ┗━━━━━━━┫       ┣━━━━━━━┛  ┗━━━━━━━┫       ┣━━━━━━━┛
 //                                             ┗━━━━━━━┛                  ┗━━━━━━━┛
             >;
@@ -200,137 +193,27 @@
 //                       ┗━━━━━━━━━━━━━━━━━━━━━━━━━┛
             bindings = <
 //         ┏━━━━━━━┓                                                                                          ┏━━━━━━━┓
-//         ┃       ┃                                                                                          ┃       ┃
-             &none                                                                                              &none
+//         ┃Battery┃                                                                                          ┃CON LED┃
+            &ind_bat                                                                                           &ind_con
 // ┏━━━━━━━╋━━━━━━━╋━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓                          ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━╋━━━━━━━╋━━━━━━━┓
-// ┃       ┃       ┃       ┃       ┃       ┃       ┃                          ┃       ┃  F7   ┃  F8   ┃  F9   ┃       ┃       ┃
-     &none   &none   &none   &none   &none   &none                              &none  &kp F7  &kp F8  &kp F9   &none   &none
+// ┃       ┃  F1   ┃  F2   ┃  F3   ┃   F4  ┃  F5   ┃                          ┃  F6   ┃   F7  ┃  F8   ┃  F9   ┃  F10  ┃ CPSLK ┃
+     &none   &kp F1 &kp F2  &kp F3  &kp F4   &kp F5                            &kp F6  &kp F7  &kp F8  &kp F9  &kp F10 &kp CAPS
 // ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫                          ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
-// ┃ Globe ┃ Shift ┃ Ctrl  ┃  Opt  ┃  Cmd  ┃ R Alt ┃                          ┃       ┃  F4   ┃  F5   ┃  F6   ┃       ┃       ┃
-&kp GLOBE &kp LSFT &kp LCTL &kp LALT &kp LGUI &kp RALT                          &none  &kp F4  &kp F5  &kp F6   &none   &none
+// ┃SCRNSHT┃       ┃       ┃       ┃  PLAY ┃  VOL+ ┃                          ┃  NEXT ┃       ┃       ┃  F11  ┃  F12  ┃TSKMNGR┃
+     &none   &none  &none   &none &kp C_PP &kp C_VOL_UP                      &kp C_NEXT &none   &none  &kp F11 &kp F12  &none
 // ┗━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫                          ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┛
-//         ┃       ┃       ┃       ┃       ┃       ┃                          ┃       ┃  F1   ┃  F2   ┃  F3   ┃       ┃
-             &none   &none   &none   &none   &none                              &none  &kp F1  &kp F2  &kp F3   &none
-//         ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━┳━━━┻━━━┳━━━┻━━━┳━━━━━━━┓  ┏━━━━━━━┳━━━┻━━━┳━━━┻━━━┳━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
-//                                     ┃ ##### ┃ ##### ┃       ┃  ┃  F12  ┃  F11  ┃  F10  ┃
-                                         &trans  &trans  &none     &kp F12 &kp F11 &kp F10
-//                                     ┗━━━━━━━┫       ┣━━━━━━━┛  ┗━━━━━━━┫       ┣━━━━━━━┛
-//                                             ┗━━━━━━━┛                  ┗━━━━━━━┛
-            >;
-        };
-
-        sym {
-//                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━┓
-            display-name = "symbols"               ;
-//                       ┗━━━━━━━━━━━━━━━━━━━━━━━━━┛
-            bindings = <
-//         ┏━━━━━━━┓                                                                                          ┏━━━━━━━┓
-//         ┃       ┃                                                                                          ┃       ┃
-             &none                                                                                              &none
-// ┏━━━━━━━╋━━━━━━━╋━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓                          ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━╋━━━━━━━╋━━━━━━━┓
-// ┃   `   ┃   *   ┃   #   ┃   +   ┃   %   ┃   _   ┃                          ┃       ┃ CtrlU ┃       ┃       ┃       ┃       ┃
-&kp GRAVE &kp STAR &kp HASH &kp PLUS &kp PRCNT &kp UNDER                        &none &kp LC(U) &none   &none   &none   &none
-// ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫                          ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
-// ┃   ~   ┃   ^   ┃   @   ┃   !   ┃   =   ┃   $   ┃                          ┃ R Alt ┃  Cmd  ┃  Opt  ┃ Ctrl  ┃       ┃ Globe ┃
-&kp TILDE &kp CARET &kp AT &kp EXCL &kp EQUAL &kp DLLR                      &kp RALT &kp LGUI &kp LALT &kp LCTL &none &kp GLOBE
-// ┗━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫                          ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┛
-//         ┃   <   ┃   >   ┃   [   ┃   ]   ┃   ?   ┃                          ┃       ┃       ┃       ┃       ┃       ┃
-             &kp LT &kp GT &kp LBKT &kp RBKT &kp QMARK                          &none   &none   &none   &none   &none
-//         ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━┳━━━┻━━━┳━━━┻━━━┳━━━━━━━┓  ┏━━━━━━━┳━━━┻━━━┳━━━┻━━━┳━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
-//                                     ┃   |   ┃   &   ┃   -   ┃  ┃       ┃ ##### ┃       ┃
-                                      &kp PIPE &kp AMPS &kp MINUS   &none   &trans  &none
-//                                     ┗━━━━━━━┫       ┣━━━━━━━┛  ┗━━━━━━━┫       ┣━━━━━━━┛
-//                                             ┗━━━━━━━┛                  ┗━━━━━━━┛
-            >;
-        };
-
-        keybd {
-//                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━┓
-            display-name = "keyboard"              ;
-//                       ┗━━━━━━━━━━━━━━━━━━━━━━━━━┛
-            bindings = <
-//         ┏━━━━━━━┓                                                                                          ┏━━━━━━━┓
-//         ┃ dongle┃                                                                                          ┃ ##### ┃
-           &flash 6                                                                                             &trans
-// ┏━━━━━━━╋━━━━━━━╋━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓                          ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━╋━━━━━━━╋━━━━━━━┓
-// ┃ brt + ┃       ┃       ┃scrnsht┃scrn cp┃ vol + ┃                          ┃con led┃       ┃bat led┃       ┃       ┃       ┃
-&kp C_BRI_UP &none   &none  GS(N4) GCS(N4) &kp C_VOL_UP                       &ind_con  &none &ind_bat  &none   &none   &none
-// ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫                          ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
-// ┃ brt - ┃  BT1  ┃  BT2  ┃  BT3  ┃  BT4  ┃  BT5  ┃                          ┃       ┃       ┃       ┃       ┃       ┃       ┃
-&kp C_BRI_DN BT_(0)  BT_(1)  BT_(2)  BT_(3)  BT_(4)                             &none   &none   &none   &none   &none   &none
-// ┗━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫                          ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┛
-//         ┃ flash ┃       ┃caps lk┃       ┃ vol - ┃                          ┃       ┃       ┃       ┃       ┃ flash ┃
-        &bootloader &none &kp CAPS &none &kp C_VOL_DN                           &none   &none   &none   &none &bootloader
-//         ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━┳━━━┻━━━┳━━━┻━━━┳━━━━━━━┓  ┏━━━━━━━┳━━━┻━━━┳━━━┻━━━┳━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
-//                                     ┃ prev  ┃ play  ┃ next  ┃  ┃       ┃studio ┃       ┃
-                                   &kp C_PREV &kp C_PP &kp C_NEXT &none &studio_unlock &none
-//                                     ┗━━━━━━━┫       ┣━━━━━━━┛  ┗━━━━━━━┫ unlock┣━━━━━━━┛
-//                                             ┗━━━━━━━┛                  ┗━━━━━━━┛
-            >;
-        };
-
-        flash {
-//                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━┓
-            display-name = "flash mode"            ;
-//                       ┗━━━━━━━━━━━━━━━━━━━━━━━━━┛
-            bindings = <
-//         ┏━━━━━━━┓                                                                                          ┏━━━━━━━┓
-//         ┃       ┃                                                                                          ┃       ┃
-             &none                                                                                              &none
-// ┏━━━━━━━╋━━━━━━━╋━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓                          ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━╋━━━━━━━╋━━━━━━━┓
-// ┃       ┃       ┃       ┃       ┃       ┃       ┃                          ┃       ┃       ┃       ┃       ┃       ┃       ┃
-     &none   &none   &none   &none   &none   &none                              &none   &none   &none   &none   &none   &none
-// ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫                          ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
-// ┃       ┃       ┃       ┃       ┃       ┃       ┃                          ┃       ┃       ┃       ┃       ┃       ┃       ┃
-     &none   &none   &none   &none   &none   &none                              &none   &none   &none   &none   &none   &none
-// ┗━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫                          ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┛
-//         ┃       ┃       ┃       ┃       ┃       ┃                          ┃       ┃       ┃       ┃       ┃       ┃
-             &none   &none   &none   &none   &none                              &none   &none   &none   &none   &none
+//         ┃       ┃       ┃       ┃  MUTE ┃  VOL- ┃                          ┃  PRVS ┃  BT1  ┃  BT2  ┃  BT3  ┃  BT4  ┃
+            &none   &none   &none &kp C_MUTE &kp C_VOL_DN                     &kp C_PREV BT_(0)  BT_(1)  BT_(2)  BT_(3)
 //         ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━┳━━━┻━━━┳━━━┻━━━┳━━━━━━━┓  ┏━━━━━━━┳━━━┻━━━┳━━━┻━━━┳━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
 //                                     ┃       ┃       ┃       ┃  ┃       ┃       ┃       ┃
-                                         &none   &none   &none      &none   &none   &none
+                                         &trans  &trans  &trans    &trans  &trans   &trans
 //                                     ┗━━━━━━━┫       ┣━━━━━━━┛  ┗━━━━━━━┫       ┣━━━━━━━┛
 //                                             ┗━━━━━━━┛                  ┗━━━━━━━┛
             >;
         };
 
+  
         // Extra empty layers for ZMK Studio
-
-        layer7 {
-            status = "reserved";
-        };
-
-        layer8 {
-            status = "reserved";
-        };
-
-        layer9 {
-            status = "reserved";
-        };
-
-        layer10 {
-            status = "reserved";
-        };
-
-        layer11 {
-            status = "reserved";
-        };
-
-        layer12 {
-            status = "reserved";
-        };
-
-        layer13 {
-            status = "reserved";
-        };
-
-        layer14 {
-            status = "reserved";
-        };
-
-        layer15 {
-            status = "reserved";
-        };
     };
 };
 
