@@ -6,7 +6,6 @@ manifest:
       url-base: https://github.com/ctranstrum
     - name: caksoylar # <-- and this for the LED
       url-base: https://github.com/caksoylar
-
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -18,9 +17,5 @@ manifest:
     - name: zmk-rgbled-widget # <-- and this for the LED
       remote: caksoylar
       revision: main
-
-  self:
-    path: config
-
   self:
     path: config
