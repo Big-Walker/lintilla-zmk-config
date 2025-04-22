@@ -4,58 +4,6 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <behaviors/rgbled_widget.dtsi>
 
-// Multiple mods
-#define GS(key) &kp LG(LS(key))
-#define GCS(key) &kp LG(LC(LS(key)))
-#define HYPR(key) &kp LG(LA(LC(LS(key))))
-
-// Shortcuts for home row mods
-#define Glb &hm GLOBE
-#define Sft &hm LSHFT
-#define Ctl &hm LCTRL
-#define Opt &hm LALT
-#define Cmd &hm LGUI
-#define Alt &hm RALT
- 
-// Magic bluetooth button
-#define BT_(btnum) &bt_key btnum btnum
-
-/ {
-    behaviors {
-        bt_key: magic_bluetooth_key {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <500>;
-            bindings = <&bt_clr>, <&bt_sel>;
-        };
-
-        hm: homerow_mod {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <300>;
-            require-prior-idle-ms = <150>;
-            quick-tap-ms = <0>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-
-        lsscw: layer_sticky_shift_caps_word {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&sscw>;
-        };
-
-
-        sscw: sticky_shift_caps_word {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&sk LSHIFT>, <&caps_word>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-    };
 
     keymap {
         compatible = "zmk,keymap";
