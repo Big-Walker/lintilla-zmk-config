@@ -19,14 +19,14 @@
 //         ┃       ┃                                                                                          ┃       ┃
 // ┏━━━━━━━╋━━━━━━━╋━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓                          ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━╋━━━━━━━╋━━━━━━━┓
 // ┃  BSPC ┃   Q   ┃   W   ┃   F   ┃   P   ┃   G   ┃                          ┃   J   ┃   L   ┃   U   ┃   Y   ┃   :   ┃  TAB  ┃
-   &kp BSPC  &kp Q   &kp W   &kp F   &kp P   &kp G                              &kp J   &kp L   &kp U   &kp Y  &kp SEMI &kp TAB
+   &kp BSPC  &kp Q   &kp W   &kp F   &kp P   &kp G                              &kp J   &kp L   &kp U   &kp Y  &kp STAR &kp TAB
 // ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫                          ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
 // ┃ SHIFT ┃   A   ┃   R   ┃   S   ┃   T   ┃   D   ┃                          ┃   H   ┃   N   ┃   E   ┃   I   ┃   O   ┃   '   ┃
-  &kp LSHFT  &kp A   &kp R   &kp S   &kp T   &kp D                              &kp H   &kp N   &kp E   &kp I  &kp O   &kp SQT
+  &kp LSHFT  &kp A   &kp R   &kp S   &kp T   &kp D                              &kp H   &kp N   &kp E   &kp I  &kp O   &kp STAR
 // ┃       ┃       ┃       ┃       ┃       ┃       ┃                          ┃       ┃       ┃       ┃       ┃       ┃       ┃
 // ┗━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫                          ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┛
 //         ┃   Z   ┃   X   ┃   C   ┃   V   ┃   B   ┃                          ┃   K   ┃   M   ┃   ,   ┃   .   ┃  / \  ┃
-             &kp Z   &kp X   &kp C   &kp V   &kp B                              &kp K   &kp M &kp COMMA &kp DOT &kp FSLH
+             &kp Z   &kp X   &kp C   &kp V   &kp B                              &kp K   &kp M &kp STAR &kp STAR &kp STAR
 //         ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━┳━━━┻━━━┳━━━┻━━━┳━━━━━━━┓  ┏━━━━━━━┳━━━┻━━━┳━━━┻━━━┳━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
 //                                     ┃ RET   ┃ RAISE ┃ L CTL ┃  ┃ RALT  ┃ LOWER ┃ SPACE ┃
                                         &kp RET  &mo 1  &kp LCTL   &kp RALT &mo  2 &kp SPACE
